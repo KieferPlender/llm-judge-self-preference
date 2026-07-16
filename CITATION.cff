@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software or its experimental artifacts, please cite the thesis."
+title: "Self-Preference Bias in LLM-as-a-Judge Evaluation"
+type: software
+authors:
+  - family-names: Plender
+    given-names: Kiefer M.
+repository-code: "https://github.com/KieferPlender/Thesis"
+url: "https://github.com/KieferPlender/Thesis"
+license: MIT
+version: 1.0.0
+date-released: 2026-07-16
+preferred-citation:
+  type: generic
+  thesis-type: "Bachelor thesis"
+  title: "Self-Preference Bias in LLM-as-a-Judge Evaluation: An Empirical Study of Stylometric Interventions"
+  authors:
+    - family-names: Plender
+      given-names: Kiefer M.
+  institution:
+    name: University of Amsterdam
+  year: 2026

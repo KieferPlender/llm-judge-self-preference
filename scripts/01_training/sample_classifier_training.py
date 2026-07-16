@@ -16,7 +16,7 @@ print("="*70)
 
 # Load judge samples to get conversation IDs to exclude
 judge_data = []
-with open('judge_samples.jsonl', 'r') as f:
+with open('data/raw/judge_samples.jsonl', 'r') as f:
     for line in f:
         try:
             judge_data.append(json.loads(line))
@@ -155,7 +155,7 @@ else:
     print(f"\nDone: No overlap with judge_samples.jsonl")
 
 # Save
-output_file = "classifier_training_samples.jsonl"
+output_file = "data/raw/classifier_training_samples.jsonl"
 df_final.to_json(output_file, orient='records', lines=True)
 
 print(f"\nDone: Saved to {output_file}")

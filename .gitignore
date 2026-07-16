@@ -41,6 +41,7 @@ wheels/
 # Environment variables
 .env
 .env.local
+.venv/
 
 # Data files (if you want to exclude large datasets)
 # Uncomment if needed:

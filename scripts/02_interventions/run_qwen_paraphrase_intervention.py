@@ -107,8 +107,8 @@ async def process_battle(row, semaphore):
     return None
 
 async def main():
-    input_file = "judge_samples.jsonl"
-    output_file = "intervention_qwen_paraphrase.jsonl"
+    input_file = "data/raw/judge_samples.jsonl"
+    output_file = "data/processed/intervention_qwen_paraphrase.jsonl"
     
     # Concurrency limit
     MAX_CONCURRENT_REQUESTS = 50  # Increased for faster processing
