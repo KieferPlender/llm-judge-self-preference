@@ -143,16 +143,20 @@ for conv_id in baseline_samples:
 print(f"Done: Loaded {len(baseline_battles)} baseline battles (merged samples + results)")
 
 # Load intervention data - need to merge with original battle samples
-# Load intervention data - need to merge with original battle samples
 # Added SBERT Filtering to ensure we test significance on VALID data (Sweet Spot 0.70-0.99)
 
+# SBERT filtering is part of the reported analysis. Without it the script would
+# silently produce different sample sizes and statistics, so fail instead.
 try:
     from sentence_transformers import SentenceTransformer
     from sklearn.metrics.pairwise import cosine_similarity
-    SBERT_AVAILABLE = True
-except ImportError:
-    SBERT_AVAILABLE = False
-    print("Warning: SBERT not found. Skipping filtering.")
+except ImportError as e:
+    raise SystemExit(
+        "sentence-transformers is required to reproduce the reported results "
+        "(SBERT fidelity filter, 0.70-0.99). Install it with: "
+        "pip install -r requirements.txt"
+    ) from e
+SBERT_AVAILABLE = True
 
 def filter_ids_with_sbert(data_path):
     """Returns a set of conversation_ids that pass the 0.70-0.99 SBERT check."""

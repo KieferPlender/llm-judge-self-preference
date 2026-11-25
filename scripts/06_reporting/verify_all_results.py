@@ -5,13 +5,18 @@ import os
 import sys
 
 # Try imports
+# SBERT filtering is part of the reported analysis. Without it the script would
+# silently produce different numbers, so fail instead.
 try:
     from sentence_transformers import SentenceTransformer
     from sklearn.metrics.pairwise import cosine_similarity
-    SBERT_AVAILABLE = True
-except ImportError:
-    SBERT_AVAILABLE = False
-    print("Warning: sentence-transformers not found. SBERT filtering will be skipped.")
+except ImportError as e:
+    raise SystemExit(
+        "sentence-transformers is required to reproduce the reported results "
+        "(SBERT fidelity filter, 0.70-0.99). Install it with: "
+        "pip install -r requirements.txt"
+    ) from e
+SBERT_AVAILABLE = True
 
 def parse_winner(judge_response):
     """Robustly parse the winner from the judge's response."""
