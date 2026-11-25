@@ -5,8 +5,8 @@ type: software
 authors:
   - family-names: Plender
     given-names: Kiefer M.
-repository-code: "https://github.com/KieferPlender/Thesis"
-url: "https://github.com/KieferPlender/Thesis"
+repository-code: "https://github.com/KieferPlender/llm-judge-self-preference"
+url: "https://github.com/KieferPlender/llm-judge-self-preference"
 license: MIT
 version: 1.0.0
 date-released: 2026-07-16

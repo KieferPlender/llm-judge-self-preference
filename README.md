@@ -1,6 +1,6 @@
 # Self-Preference Bias in LLM-as-a-Judge Evaluation
 
-[![Reproduce results](https://github.com/KieferPlender/Thesis/actions/workflows/reproduce.yml/badge.svg)](https://github.com/KieferPlender/Thesis/actions/workflows/reproduce.yml)
+[![Reproduce results](https://github.com/KieferPlender/llm-judge-self-preference/actions/workflows/reproduce.yml/badge.svg)](https://github.com/KieferPlender/llm-judge-self-preference/actions/workflows/reproduce.yml)
 
 > **TL;DR:** LLM judges (GPT-4o, DeepSeek-R1, Claude 3.5 Haiku) tend to favor answers that look like their own writing. I tested whether hiding each model's writing style removes that bias. Three rewrites cut a style classifier's ability to identify the author from **80.5% to as low as 47.0%**, yet self-preference barely moved: every effect was negligible (Cohen's *h* ≤ 0.12). **Self-preference is not just style recognition.** Every number below can be regenerated from the included data with no API keys, and CI checks this on every push.
 
