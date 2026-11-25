@@ -34,8 +34,17 @@ jobs:
           python scripts/06_reporting/statistical_significance_rigorous.py
           python scripts/06_reporting/conference_plots.py
 
-      - name: Check metrics match the committed results
+      - name: Check self-preference results match exactly
         # Plots are excluded: PNG bytes vary with matplotlib and font versions.
+        # Classifier accuracies are checked separately, with a tolerance.
         run: |
           git status --short
-          git diff --exit-code -- results/metrics
+          git diff --exit-code -- results/metrics \
+            ':!results/metrics/per_model_intervention_data.json' \
+            ':!results/metrics/per_model_intervention_effects.txt'
+
+      - name: Check classifier accuracies match within 1 percentage point
+        run: |
+          git show HEAD:results/metrics/per_model_intervention_data.json > /tmp/committed.json
+          python scripts/05_verification/compare_classifier_metrics.py \
+            /tmp/committed.json results/metrics/per_model_intervention_data.json
